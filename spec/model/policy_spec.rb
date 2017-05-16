@@ -30,12 +30,12 @@ RSpec.describe Policy, type: :model do
 
   describe '.statements' do
     it 'should return the policy document statements' do
-      expect(subject.statements.first.effect).to eq('Allow')
-      expect(subject.statements.first.actions).to eq(['data:*'])
-      expect(subject.statements.first.resource).to eq('urn:bigsofa:data:/**/account/**?+account=*')
-      expect(subject.statements.second.effect).to eq('Deny')
-      expect(subject.statements.second.actions).to eq(['data:delete'])
-      expect(subject.statements.second.resource).to eq('urn:bigsofa:data:/**/account?+account=${login.account}')
+      expect(subject.statements[0].effect).to eq('Allow')
+      expect(subject.statements[0].actions).to eq(['data:*'])
+      expect(subject.statements[0].resource).to eq('urn:bigsofa:data:/**/account/**?+account=*')
+      expect(subject.statements[1].effect).to eq('Deny')
+      expect(subject.statements[1].actions).to eq(['data:delete'])
+      expect(subject.statements[1].resource).to eq('urn:bigsofa:data:/**/account?+account=${login.account}')
     end
   end
 end
